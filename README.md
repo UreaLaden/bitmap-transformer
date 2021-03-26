@@ -1,6 +1,8 @@
 # Bitmap Transformer
 
-##Collaborated with [Amelia Waggoner](https://github.com/GoldenDog190)
+##Collaborators
+[Amelia Waggoner](https://github.com/GoldenDog190)
+[Leaundrae Mckinney](https://github.com/UreaLaden)
 
 ##For this assignment we built a bitmap (.bmp) transformer Class Instance (CLI) with the ability to read a bitmap in from disk, run one or more color or raster transforms. Then write it out to a new file. This project required manipulating binary data and is composed of small tested methods that solve specific problems.
 
