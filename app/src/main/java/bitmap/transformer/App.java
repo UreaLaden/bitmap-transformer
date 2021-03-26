@@ -7,9 +7,10 @@ public class App {
 
     public static void main(String[] args) {
         BitMap bitMap = new BitMap();
-        bitMap.inputFilePath = "app/src/main/resources/bitpam.bmp";
+        bitMap.inputFilePath = "app/src/main/resources/bitmap.bmp";
         bitMap.read();
-
+        bitMap.outputFilePath = "app/src/main/resources/test7.bmp";
+        bitMap.write();
     }
 
 
