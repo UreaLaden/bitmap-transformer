@@ -61,7 +61,7 @@ public class BitMap {
             temp.add(binary.getBlue());
             result.add(temp);
         }
-        System.out.println(result);
+//        System.out.println(result);
         return result;
     }
 

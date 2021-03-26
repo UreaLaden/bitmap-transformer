@@ -14,9 +14,15 @@
 
 ## Methods
 
-Read
-Write 
-Randomize
-Invert
-Grayscale
-GetRGBA
+### **Read** 
+#### This class method accepts no parameters and reads the contents of inputFile and creates a list of RGB values 
+### **Write**
+#### This class method accepts no arguments and creates a new image through helper functions.
+### **Randomize**
+#### This method accepts 3 arguments (`int red`, `int green`, `int blue`) and returns a random color
+### **Invert**
+#### This method accepts 3 arguments (`int red`, `int green`, `int blue`) and returns the opposite colors
+### **Grayscale**
+#### This method accepts 3 arguments (`int red`, `int green`, `int blue`) and returns a grayscale representation of the origin color
+### **GetRGBA**
+#### This helper method accepts a list of Color objects and returns a multi-dimensional array of r,g,b values.
