@@ -18,10 +18,22 @@ public class BitMap {
         outputFilePath = null;
         transformName = null;
     }
+    public BitMap(String inputFilePath ) {
+        this.inputFilePath = inputFilePath;
+        this.outputFilePath = null;
+        this.transformName = null;
+    }
+    public BitMap(String inputFilePath, String outputFilePath) {
+        this.inputFilePath = inputFilePath;
+        this.outputFilePath = outputFilePath;
+        this.transformName = null;
+        write();
+    }
     public BitMap(String inputFilePath, String outputFilePath, String transformName) {
         this.inputFilePath = inputFilePath;
         this.outputFilePath = outputFilePath;
         this.transformName = transformName;
+        write();
     }
 
     public void read(){
@@ -80,13 +92,13 @@ public class BitMap {
                         int red = (int) (c.getRed() * 0.299);
                         int green = (int) (c.getGreen() * 0.587);
                         int blue = (int) (c.getBlue() * 0.114);
-                        Color newColor = new Color(0,0,0);
+                        Color newColor = new Color(red,green,blue);
 
-                        if(this.transformName == "gray"){
+                        if(this.transformName.equals("gray")){
                             newColor = grayscale(red,green,blue);
-                        }else if(this.transformName == "invert"){
+                        }else if(this.transformName.equals("invert")){
                             newColor = invert(red,green,blue);
-                        }else if(this.transformName == "random"){
+                        }else if(this.transformName.equals("random")){
                             newColor = randomize(red,green,blue);
                         }
                         bi.setRGB(j, i, newColor.getRGB());
@@ -94,6 +106,7 @@ public class BitMap {
                 }
                 ImageIO.write(bi,"bmp",outputFile);
             } catch (IOException e) {
+                System.out.println("Missing an outputFile");
             }
         }
         else
@@ -103,12 +116,15 @@ public class BitMap {
     }
 
     public Color randomize(int red, int green,int blue){
-        return new Color(red + green + blue,
-                red + green + blue, red + green + blue);
+        Random rand = new Random();
+        int r = rand.nextInt(red + 50);
+        int g = rand.nextInt(green + 50);
+        int b = rand.nextInt(blue + 50);
+        System.out.println("Red: "+r+"Green: "+g + "Blue: "+b);
+        return new Color(r,g,b);
     }
     public Color invert(int red, int green,int blue){
-        return new Color(red + green + blue,
-                red + green + blue, red + green + blue);
+        return new Color(blue /2 + green / 2 + red/2);
     }
     public Color grayscale(int red, int green,int blue){
         return new Color(red + green + blue,
