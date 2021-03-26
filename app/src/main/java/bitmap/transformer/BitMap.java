@@ -31,15 +31,7 @@ public class BitMap {
             img = ImageIO.read(new File(this.inputFilePath));
             this.height = img.getHeight();
             this.width = img.getWidth();
-            ArrayList<Color>bits = new ArrayList<>();
-            for(int h =1; h < this.height; h++){
-                for(int w = 1; w < this.width; w++){
-                    int rgb = img.getRGB(w,h);
-                    Color binaryColor = new Color(rgb);
-                    bits.add(binaryColor);
-                }
-            }
-            getRGBA(bits);
+            createColorList(img);
         }
         catch (IOException e)
         {
@@ -49,8 +41,6 @@ public class BitMap {
         }
     }
     public void createColorList(BufferedImage img){
-//        int height = img.getHeight();
-//        int width = img.getWidth();
         ArrayList<Color>bits = new ArrayList<>();
         for(int h =1; h < this.height; h++){
             for(int w = 1; w < this.width; w++){
@@ -71,7 +61,7 @@ public class BitMap {
             temp.add(binary.getBlue());
             result.add(temp);
         }
-//        System.out.println(result);
+        System.out.println(result);
         return result;
     }
 
